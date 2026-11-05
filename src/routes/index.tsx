@@ -25,10 +25,30 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  ["Crypto asset tracing", "Map public transactions, wallets and on-chain movements.", "/assets/crypto-tracing.png"],
-  ["Cyber intelligence", "Research domains, online identities and infrastructure.", "/assets/cyber-intel-icon.png"],
-  ["Digital investigations", "Organise records, map events and flag open questions.", "/assets/cyber-investigation-icon.png"],
-  ["Evidence documentation", "A clear chronology with sources and limitations.", "/assets/asset-tracing.png"],
+  [
+    "Asset Recovery",
+    "Asset Tracing and Investigations",
+    "Specializing in Asset Tracing, Crypto Recovery Services offers tailored plans to aid law enforcement and law firms. We provide key evidence for successful fund recovery.",
+    "/assets/asset-tracing.png",
+  ],
+  [
+    "OSINT & HUMINT",
+    "Cyber Intelligence Services",
+    "Leveraging diverse techniques like Open Source Intelligence, our team delivers actionable evidence. This service augments the capabilities of law enforcement and legal professionals.",
+    "/assets/cyber-intel-icon.png",
+  ],
+  [
+    "LEO Certified",
+    "Cyber Investigation Team",
+    "Our team of U.S.-Certified Cyber Investigators conducts global inquiries, spanning 6 continents. We are adept at gathering essential evidence for varied cases.",
+    "/assets/cyber-investigation-icon.png",
+  ],
+  [
+    "On-Chain Forensics",
+    "Cryptocurrency Tracing",
+    "We excel at tracking most types of cryptocurrencies and assets. If digital assets are transferred, we have the capability to trace and follow their movement.",
+    "/assets/crypto-tracing.png",
+  ],
 ];
 
 const steps = [
@@ -98,13 +118,19 @@ function Index() {
         <p className="eyebrow">Services</p>
         <h2 className="mt-3 text-3xl font-extrabold">Focused capabilities, clear boundaries.</h2>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {services.map(([title, text, img]) => (
-            <article key={title} className="flex gap-4 rounded-xl border border-border bg-card p-5 transition hover:border-primary">
-              <img src={img} alt="" className="h-12 w-12 shrink-0 object-contain" loading="lazy" />
-              <div>
-                <h3 className="font-semibold">{title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{text}</p>
+          {services.map(([tag, title, text, img]) => (
+            <article key={title} className="flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition hover:border-primary">
+              <div className="flex items-start gap-4">
+                <img src={img} alt="" className="h-12 w-12 shrink-0 object-contain" loading="lazy" />
+                <div>
+                  <p className="eyebrow">{tag}</p>
+                  <h3 className="mt-1 font-semibold">{title}</h3>
+                </div>
               </div>
+              <p className="text-sm text-muted-foreground">{text}</p>
+              <a href="#contact" className="mt-auto text-sm font-semibold text-accent hover:underline">
+                Explore Capabilities &rarr;
+              </a>
             </article>
           ))}
         </div>
