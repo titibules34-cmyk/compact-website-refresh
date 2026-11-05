@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const WORDS = ["digital", "tracing", "intelligence", "recovery"];
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -128,9 +128,15 @@ function Index() {
                 </div>
               </div>
               <p className="text-sm text-muted-foreground">{text}</p>
-              <a href="#contact" className="mt-auto text-sm font-semibold text-accent hover:underline">
-                Explore Capabilities &rarr;
-              </a>
+              {title === "Asset Tracing and Investigations" ? (
+                <Link to="/asset-recovery" className="mt-auto text-sm font-semibold text-accent hover:underline">
+                  Explore Capabilities &rarr;
+                </Link>
+              ) : (
+                <a href="#contact" className="mt-auto text-sm font-semibold text-accent hover:underline">
+                  Explore Capabilities &rarr;
+                </a>
+              )}
             </article>
           ))}
         </div>
