@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const WORDS = ["tracing.", "intelligence.", "recovery."];
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -45,6 +47,11 @@ const faqs = [
 
 function Index() {
   const [open, setOpen] = useState<number | null>(0);
+  const [word, setWord] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setWord((w) => (w + 1) % WORDS.length), 2200);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <main className="min-h-screen">
@@ -65,7 +72,8 @@ function Index() {
         <div className="mx-auto w-[min(100%-2rem,64rem)] pb-16 pt-32">
           <p className="eyebrow">Digital forensics & investigations</p>
           <h1 className="mt-4 max-w-2xl text-4xl font-extrabold leading-tight sm:text-6xl">
-            Digital <span className="text-accent">solutions</span> for tracing, intelligence & recovery.
+            Digital solutions for{" "}
+            <span key={word} className="word-swap inline-block text-accent">{WORDS[word]}</span>
           </h1>
           <p className="mt-4 max-w-lg text-muted-foreground">
             Tracing, research and clear evidence for individuals, businesses and legal professionals.
