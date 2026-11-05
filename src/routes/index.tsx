@@ -78,7 +78,7 @@ function Index() {
             solutions.
           </h1>
           <p className="mt-4 max-w-lg text-muted-foreground">
-            Tracing, research and clear evidence for individuals, businesses and legal professionals.
+            Tracing, recovery, and forensic intelligence for law firms, investigators, and institutions worldwide.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">Request a consultation</a>
