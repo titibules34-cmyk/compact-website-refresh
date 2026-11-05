@@ -65,7 +65,7 @@ function Index() {
         <div className="mx-auto w-[min(100%-2rem,64rem)] pb-16 pt-32">
           <p className="eyebrow">Digital forensics & investigations</p>
           <h1 className="mt-4 max-w-2xl text-4xl font-extrabold leading-tight sm:text-6xl">
-            Actionable <span className="text-accent">solutions</span> for digital fraud.
+            Digital <span className="text-accent">solutions</span> for tracing, intelligence & recovery.
           </h1>
           <p className="mt-4 max-w-lg text-muted-foreground">
             Tracing, research and clear evidence for individuals, businesses and legal professionals.
