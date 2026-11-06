@@ -44,7 +44,7 @@ function AssetRecovery() {
         <Link to="/" className="text-sm text-muted-foreground hover:text-foreground">&larr; Back home</Link>
       </header>
 
-      <section className="relative overflow-hidden">
+      <section className="relative isolate overflow-hidden">
         <img src="/assets/cyber-justice-hero.webp" alt="" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-60" />
         <div className="hero-overlay absolute inset-0 -z-10" />
         <div className="mx-auto w-[min(100%-2rem,64rem)] pb-16 pt-36">
