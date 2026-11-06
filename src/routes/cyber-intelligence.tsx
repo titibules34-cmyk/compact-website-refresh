@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CyberInvestigationTeam } from "../components/CyberInvestigationTeam";
 import { Globe, UserSearch, Bitcoin, FileSearch, Landmark, ShieldCheck, Coins, Scale, Earth, Gavel, Wallet, Search, BadgeCheck, type LucideIcon } from "lucide-react";
 
 export const Route = createFileRoute("/cyber-intelligence")({
@@ -17,7 +18,8 @@ export const Route = createFileRoute("/cyber-intelligence")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: CyberIntelligence,
+  validateSearch: (search: Record<string, unknown>) => ({ team: search.team === "1" }),
+  component: CyberIntelligenceRouter,
 });
 
 const solutions = [
@@ -41,7 +43,7 @@ const clients: [string, LucideIcon][] = [
   ["Law Enforcement", BadgeCheck],
 ];
 
-function CyberIntelligence() {
+function IntelligenceServices() {
   const [pair, setPair] = useState(0);
   useEffect(() => {
     const t = setInterval(() => setPair((p) => (p + 1) % 2), 3000);
@@ -143,4 +145,10 @@ function CyberIntelligence() {
       </footer>
     </main>
   );
+}
+
+
+function CyberIntelligenceRouter() {
+  const { team } = Route.useSearch();
+  return team ? <CyberInvestigationTeam /> : <IntelligenceServices />;
 }
