@@ -132,8 +132,12 @@ function Index() {
                 <Link to="/asset-recovery" className="mt-auto text-sm font-semibold text-accent hover:underline">
                   Explore Capabilities &rarr;
                 </Link>
-              ) : title === "Cyber Intelligence Services" || title === "Cyber Investigation Team" ? (
+              ) : title === "Cyber Intelligence Services" ? (
                 <Link to="/cyber-intelligence" className="mt-auto text-sm font-semibold text-accent hover:underline">
+                  Explore Capabilities &rarr;
+                </Link>
+              ) : title === "Cyber Investigation Team" ? (
+                <Link to="/cyber-investigation-team" className="mt-auto text-sm font-semibold text-accent hover:underline">
                   Explore Capabilities &rarr;
                 </Link>
               ) : (
