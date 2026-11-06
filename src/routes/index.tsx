@@ -132,6 +132,10 @@ function Index() {
                 <Link to="/asset-recovery" className="mt-auto text-sm font-semibold text-accent hover:underline">
                   Explore Capabilities &rarr;
                 </Link>
+              ) : title === "Cyber Intelligence Services" ? (
+                <Link to="/cyber-intelligence" className="mt-auto text-sm font-semibold text-accent hover:underline">
+                  Explore Capabilities &rarr;
+                </Link>
               ) : (
                 <a href="#contact" className="mt-auto text-sm font-semibold text-accent hover:underline">
                   Explore Capabilities &rarr;
