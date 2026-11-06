@@ -29,9 +29,9 @@ export function CryptocurrencyTracing() {
           <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
             Our blockchain analysts use specialist technology and practical experience to trace supported cryptocurrencies and document the movement of digital assets.
           </p>
-          <a href="https://assetrecover.ltd/#contact" target="_blank" rel="noreferrer" className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">
+          <Link to="/" hash="contact" className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">
             Request an evaluation
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -102,7 +102,7 @@ export function CryptocurrencyTracing() {
             <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary"><ShieldCheck className="h-7 w-7" /></span>
             <h2 className="mt-5 text-3xl font-extrabold">Already lost cryptocurrency?</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">Arrange an initial conversation to discuss the circumstances and whether your case may benefit from cryptocurrency tracing. Recovery cannot be guaranteed; any next steps depend on the evidence and the relevant platforms and authorities.</p>
-            <a href="https://assetrecover.ltd/#contact" target="_blank" rel="noreferrer" className="mt-7 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">Learn more / Request a consultation</a>
+            <Link to="/" hash="contact" className="mt-7 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">Learn more / Request a consultation</Link>
           </div>
         </div>
       </section>
