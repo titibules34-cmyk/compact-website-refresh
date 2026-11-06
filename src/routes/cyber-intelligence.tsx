@@ -60,31 +60,51 @@ function CyberIntelligence() {
         <img src="/assets/cyber-justice-hero.webp" alt="" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-60" />
         <div className="hero-overlay absolute inset-0 -z-10" />
         <div className="mx-auto w-[min(100%-2rem,64rem)] pb-14 pt-36">
-          <p className="eyebrow">OSINT & HUMINT</p>
-          <h1 className="mt-4 max-w-2xl text-4xl font-extrabold leading-tight sm:text-5xl">
-            Solutions based on <span className="text-accent">Intelligence</span>
+          <p className="eyebrow">CYBER INVESTIGATION TEAM · OSINT · HUMINT · FININT</p>
+          <h1 className="mt-4 max-w-3xl text-4xl font-extrabold leading-tight sm:text-6xl">
+            Intelligence that turns <span className="text-accent">complexity</span> into clarity.
           </h1>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Specialist cyber investigations, digital forensics and asset intelligence — bringing evidence, expertise and a clear direction to complex cases worldwide.
+          </p>
         </div>
       </section>
 
-      <section className="mx-auto grid w-[min(100%-2rem,64rem)] gap-5 py-12 sm:grid-cols-2 lg:grid-cols-3">
-        {solutions.map(([title, text], i) => (
-          <article key={title} className="rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary hover:shadow-glow">
-            <div className="flex items-center justify-between">
-              {(() => {
-                const Icon = icons[i] ?? Globe;
-                return (
-                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
-                  </span>
-                );
-              })()}
-              <span className="eyebrow">{String(i + 1).padStart(2, "0")}</span>
-            </div>
-            <h2 className="mt-4 text-lg font-bold leading-snug">{title}</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
-          </article>
-        ))}
+      <section className="mx-auto w-[min(100%-2rem,64rem)] py-16">
+        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="eyebrow">Explore capabilities</p>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">A complete investigative picture.</h2>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+            From the first digital lead to expert evidence and recovery planning, our specialists connect the detail.
+          </p>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {solutions.map(([title, text], i) => (
+            <article key={title} className={`group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-glow ${i === 0 ? "md:col-span-2 lg:col-span-2" : ""}`}>
+              <div className="absolute right-0 top-0 h-28 w-28 rounded-bl-full bg-primary/[0.04] transition group-hover:bg-primary/[0.09]" />
+              <div className="relative flex items-center justify-between">
+                {(() => {
+                  const Icon = icons[i] ?? Globe;
+                  return (
+                    <span className="grid h-12 w-12 place-items-center rounded-xl border border-primary/15 bg-primary/10 text-primary">
+                      <Icon className="h-6 w-6" strokeWidth={1.75} />
+                    </span>
+                  );
+                })()}
+                <span className="font-mono text-xs tracking-[0.2em] text-muted-foreground/70">{String(i + 1).padStart(2, "0")}</span>
+              </div>
+              <h3 className="relative mt-5 text-lg font-bold leading-snug sm:text-xl">{title}</h3>
+              <p className="relative mt-3 text-sm leading-7 text-muted-foreground">{text}</p>
+              <div className="relative mt-auto pt-6">
+                <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-accent">
+                  Specialist capability <span aria-hidden="true">↗</span>
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="border-y border-border bg-secondary/50">
