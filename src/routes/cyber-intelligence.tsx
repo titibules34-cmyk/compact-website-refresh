@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Globe, UserSearch, Bitcoin, FileSearch, Landmark, ShieldCheck, Coins, Scale, Earth, Gavel, Wallet, Search, BadgeCheck, type LucideIcon } from "lucide-react";
 
 export const Route = createFileRoute("/cyber-intelligence")({
   head: () => ({
@@ -30,9 +32,21 @@ const solutions = [
   ["Global Investigations", "Our Cyber Investigators are Certified in the United States and experienced with investigations spanning 6 continents."],
 ];
 
-const clients = ["Law Firms", "Virtual Asset Service Providers"];
+const icons: LucideIcon[] = [Globe, UserSearch, Bitcoin, FileSearch, Landmark, ShieldCheck, Coins, Scale, Earth];
+
+const clients: [string, LucideIcon][] = [
+  ["Law Firms", Gavel],
+  ["Virtual Asset Service Providers", Wallet],
+  ["Private Investigators", Search],
+  ["Law Enforcement", BadgeCheck],
+];
 
 function CyberIntelligence() {
+  const [pair, setPair] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setPair((p) => (p + 1) % 2), 3000);
+    return () => clearInterval(t);
+  }, []);
   return (
     <main className="light min-h-screen bg-background text-foreground">
       <header className="fixed inset-x-0 top-4 z-50 mx-auto flex w-[min(100%-2rem,64rem)] items-center justify-between rounded-full border border-border bg-background/70 px-5 py-2.5 backdrop-blur">
@@ -56,8 +70,18 @@ function CyberIntelligence() {
       <section className="mx-auto grid w-[min(100%-2rem,64rem)] gap-5 py-12 sm:grid-cols-2 lg:grid-cols-3">
         {solutions.map(([title, text], i) => (
           <article key={title} className="rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary hover:shadow-glow">
-            <span className="eyebrow">{String(i + 1).padStart(2, "0")}</span>
-            <h2 className="mt-2 text-lg font-bold leading-snug">{title}</h2>
+            <div className="flex items-center justify-between">
+              {(() => {
+                const Icon = icons[i];
+                return (
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                  </span>
+                );
+              })()}
+              <span className="eyebrow">{String(i + 1).padStart(2, "0")}</span>
+            </div>
+            <h2 className="mt-4 text-lg font-bold leading-snug">{title}</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
           </article>
         ))}
@@ -70,12 +94,22 @@ function CyberIntelligence() {
           <p className="mt-3 max-w-xl text-muted-foreground">
             We provide solutions for a variety of Industries as well as High-Net-Worth Individuals.
           </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            {clients.map((c, i) => (
-              <div key={c} className="flex items-center gap-4 rounded-2xl border border-border bg-card p-6">
-                <span className="text-3xl font-extrabold text-accent">0{i + 1}</span>
-                <span className="text-lg font-bold">{c}</span>
+          <div key={pair} className="mt-8 grid gap-4 sm:grid-cols-2">
+            {clients.slice(pair * 2, pair * 2 + 2).map(([c, Icon], i) => (
+              <div key={c} className="client-in flex items-center gap-4 rounded-2xl border border-border bg-card p-6" style={{ animationDelay: `${i * 120}ms` }}>
+                <span className="grid h-14 w-14 place-items-center rounded-xl bg-primary text-primary-foreground shadow-glow">
+                  <Icon className="h-7 w-7" />
+                </span>
+                <div>
+                  <span className="eyebrow">0{pair * 2 + i + 1}</span>
+                  <p className="text-lg font-bold">{c}</p>
+                </div>
               </div>
+            ))}
+          </div>
+          <div className="mt-4 flex gap-2">
+            {[0, 1].map((d) => (
+              <button key={d} type="button" aria-label={`Show clients ${d * 2 + 1}-${d * 2 + 2}`} onClick={() => setPair(d)} className={`h-1.5 rounded-full transition-all ${pair === d ? "w-8 bg-primary" : "w-4 bg-border"}`} />
             ))}
           </div>
           <Link to="/" hash="contact" className="mt-8 inline-block rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">
