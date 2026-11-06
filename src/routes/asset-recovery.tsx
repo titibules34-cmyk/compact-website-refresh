@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { CryptocurrencyTracing } from "../components/CryptocurrencyTracing";
 
 export const Route = createFileRoute("/asset-recovery")({
   head: () => ({
@@ -18,7 +19,8 @@ export const Route = createFileRoute("/asset-recovery")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: AssetRecovery,
+  validateSearch: (search: Record<string, unknown>) => ({ crypto: search.crypto === true || search.crypto === "1" }),
+  component: AssetRecoveryRouter,
 });
 
 const methods = [
@@ -33,6 +35,11 @@ const methods = [
     text: "We trace and provide evidence for a range of Cryptocurrencies, including Bitcoin and Ethereum, among others. Our Investigations Team tracks down the owners once the Cryptocurrency is traced to the last Wallet before being exchanged for Fiat Currency, thereby enabling the recovery of your funds.",
   },
 ];
+
+function AssetRecoveryRouter() {
+  const { crypto } = Route.useSearch();
+  return crypto ? <CryptocurrencyTracing /> : <AssetRecovery />;
+}
 
 function AssetRecovery() {
   return (
