@@ -36,7 +36,7 @@ const methods = [
 
 function AssetRecovery() {
   return (
-    <main className="min-h-screen">
+    <main className="light min-h-screen bg-background text-foreground">
       <header className="fixed inset-x-0 top-4 z-50 mx-auto flex w-[min(100%-2rem,64rem)] items-center justify-between rounded-full border border-border bg-background/70 px-5 py-2.5 backdrop-blur">
         <Link to="/" className="text-sm font-extrabold tracking-widest">
           CYBER <span className="text-accent">JUSTICE</span>
