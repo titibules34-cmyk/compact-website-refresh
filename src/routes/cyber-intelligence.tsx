@@ -18,7 +18,7 @@ export const Route = createFileRoute("/cyber-intelligence")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  validateSearch: (search: Record<string, unknown>) => ({ team: search.team === "1" }),
+  validateSearch: (search: Record<string, unknown>) => ({ team: search.team === true || search.team === "1" }),
   component: CyberIntelligenceRouter,
 });
 
