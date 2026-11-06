@@ -72,7 +72,7 @@ function CyberIntelligence() {
           <article key={title} className="rounded-2xl border border-border bg-card p-6 transition hover:-translate-y-0.5 hover:border-primary hover:shadow-glow">
             <div className="flex items-center justify-between">
               {(() => {
-                const Icon = icons[i];
+                const Icon = icons[i] ?? Globe;
                 return (
                   <span className="grid h-12 w-12 place-items-center rounded-xl bg-primary/10 text-primary">
                     <Icon className="h-6 w-6" strokeWidth={1.75} />
