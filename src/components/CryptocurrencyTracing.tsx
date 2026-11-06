@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { Bitcoin, Blocks, ChartNoAxesCombined, Search, ShieldCheck, Wallet } from "lucide-react";
 
 const features = [
-  { icon: Bitcoin, title: "Not all cryptos are equal", text: "Most cryptocurrencies are traceable, though not all. We can trace widely used assets including Bitcoin and Ethereum, as well as other supported cryptocurrencies." },
-  { icon: Wallet, title: "Follow the wallet trail", text: "We analyse blockchain movements, identify relevant wallet addresses and map the flow of virtual assets between transactions." },
-  { icon: Search, title: "Investigative intelligence", text: "Where the evidence supports it, our analysis can help identify services or platforms associated with wallets and develop further investigative leads." },
+  { icon: Bitcoin, title: "Not all Cryptos are Equal", text: "Most Cryptocurrencies are traceable, however, not all. We are able to trace the most popular Cryptocurrencies, including Bitcoin and Ethereum, as well as others." },
+  { icon: Wallet, title: "The Technical Solution", text: "We are able to not only trace the movement of Cryptocurrency and identify the specific wallets, we are also able to identify where those wallets are being held and even track the locations of those that access the wallets." },
+  { icon: Search, title: "Are Cryptos Traceable?", text: "Almost all virtual currencies are traceable. Each time Cryptocurrency is moved from one wallet to another it is recorded in the Blockchain." },
 ];
 
 export function CryptocurrencyTracing() {
@@ -24,10 +24,10 @@ export function CryptocurrencyTracing() {
             Cryptocurrency <span className="text-accent">Tracing and Recovery</span>
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            The first step in investigating misappropriated virtual assets is establishing where they moved and identifying the wallets and services involved. This helps define the investigative target.
+            The first step to recovering virtual assets is to determine where they were moved to and to whom. This establishes our target.
           </p>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-muted-foreground">
-            Our blockchain analysts use specialist technology and practical experience to trace supported cryptocurrencies and document the movement of digital assets.
+            We are ready to find your misappropriated virtual assets with state of the art technology and experienced Blockchain Analysts with years of experience with Cryptocurrencies.
           </p>
           <Link to="/" hash="contact" className="mt-8 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">
             Request an evaluation
@@ -39,11 +39,11 @@ export function CryptocurrencyTracing() {
         <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="eyebrow">About</p>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Understanding cryptocurrencies</h2>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">Cryptocurrencies</h2>
           </div>
           <div className="space-y-4 text-sm leading-7 text-muted-foreground">
-            <p>Cryptocurrencies are digital assets that use blockchain technology to support peer-to-peer value transfer. Many operate on decentralised networks and may sit outside traditional financial intermediaries, although laws and regulatory requirements can still apply.</p>
-            <p>Transactions on public blockchains are generally recorded on a shared ledger. That record can provide a valuable source of evidence when tracing the movement of virtual assets.</p>
+            <p>Cryptocurrencies are digital assets that utilize Blockchain technology in order to provide a decentralized monetary system, often outside of the Jurisdiction of regulatory bodies.</p>
+            <p><strong className="text-foreground">Are Cryptos Traceable?</strong> While Cryptocurrencies are, with few exceptions, decentralized, almost all virtual currencies are traceable. Cryptocurrencies are kept in digital accounts referred to as wallets. Each time Cryptocurrency is moved from one wallet to another it is recorded in the Blockchain.</p>
           </div>
         </div>
         <div className="mt-10 grid gap-4 md:grid-cols-3">
@@ -62,8 +62,8 @@ export function CryptocurrencyTracing() {
         <div className="mx-auto grid w-[min(100%-2rem,64rem)] gap-10 py-16 md:grid-cols-[1fr_1fr] md:items-center">
           <div>
             <p className="eyebrow">The technical solution</p>
-            <h2 className="mt-3 text-3xl font-extrabold">Follow the on-chain evidence.</h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">Each transaction recorded on a public blockchain can help build a timeline of how assets moved from one address to another. Our work focuses on tracing those movements, identifying relevant wallet clusters and documenting leads for further investigation.</p>
+            <h2 className="mt-3 text-3xl font-extrabold">Trace the wallets. Find the target.</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">We are able to not only trace the movement of Cryptocurrency and identify the specific wallets, we are also able to identify where those wallets are being held and even track the locations of those that access the wallets.</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-6">
             <div className="flex items-center gap-3"><Blocks className="h-6 w-6 text-accent" /><span className="font-semibold">Blockchain transaction trail</span></div>
@@ -84,14 +84,14 @@ export function CryptocurrencyTracing() {
       <section className="mx-auto w-[min(100%-2rem,64rem)] py-16">
         <div className="grid gap-8 md:grid-cols-2 md:items-center">
           <div>
-            <p className="eyebrow">How much bitcoin?</p>
-            <h2 className="mt-3 text-3xl font-extrabold">Digital asset losses can be substantial.</h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">The full scale of stolen, embezzled or misappropriated cryptocurrency is difficult to quantify. If you are considering a cryptocurrency transaction, independent due diligence on the wallets and counterparties involved may help inform your decision.</p>
+            <p className="eyebrow">About</p>
+            <h2 className="mt-3 text-3xl font-extrabold">How Much Bitcoin</h2>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">While the amount of Cryptocurrency that is either stolen, embezzled or misappropriated is unknown, experts agree the figure is in the Billions every year. You do not have to be part of this statistic.</p>
           </div>
           <div className="rounded-2xl border border-border bg-card p-8">
             <ChartNoAxesCombined className="h-10 w-10 text-accent" />
-            <p className="mt-5 text-xl font-bold">Review before you transact.</p>
-            <p className="mt-2 text-sm leading-7 text-muted-foreground">A wallet and transaction review can help surface relevant on-chain history and potential risk indicators. Findings are evidence-led and are not a guarantee that an asset is safe or recoverable.</p>
+            <p className="mt-5 text-xl font-bold">Due diligence before you buy.</p>
+            <p className="mt-2 text-sm leading-7 text-muted-foreground">Before making any Cryptocurrency purchase, we can provide a full due-diligence report of all the Crypto Wallets involved.</p>
           </div>
         </div>
       </section>
@@ -101,8 +101,8 @@ export function CryptocurrencyTracing() {
           <div className="mx-auto max-w-2xl text-center">
             <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 text-primary"><ShieldCheck className="h-7 w-7" /></span>
             <h2 className="mt-5 text-3xl font-extrabold">Already lost cryptocurrency?</h2>
-            <p className="mt-4 text-sm leading-7 text-muted-foreground">Arrange an initial conversation to discuss the circumstances and whether your case may benefit from cryptocurrency tracing. Recovery cannot be guaranteed; any next steps depend on the evidence and the relevant platforms and authorities.</p>
-            <Link to="/" hash="contact" className="mt-7 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">Learn more / Request a consultation</Link>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">If you have already lost Cryptocurrency, then schedule a complimentary consultation to see if your case may benefit from Cryptocurrency Tracing services.</p>
+            <Link to="/" hash="contact" className="mt-7 inline-flex rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow">Learn more</Link>
           </div>
         </div>
       </section>
