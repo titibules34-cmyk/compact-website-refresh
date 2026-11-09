@@ -65,14 +65,18 @@ export function CryptocurrencyTracing() {
             <h2 className="mt-3 text-3xl font-extrabold">Trace the wallets. Find the target.</h2>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">We are able to not only trace the movement of Cryptocurrency and identify the specific wallets, we are also able to identify where those wallets are being held and even track the locations of those that access the wallets.</p>
           </div>
-          <div className="overflow-hidden rounded-2xl border border-border bg-card">
-            <img
-              src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Lh43EqDo7Qu5NN42RZC8oHogbJ/845a503a-eb8d-4f2b-a3dd-cfab5435d485.png"
-              alt="Digital world map showing a global network of connected locations"
-              className="block aspect-[16/9] h-auto w-full object-cover"
-              loading="lazy"
-            />
-            <p className="px-5 py-3 text-xs leading-6 text-muted-foreground">Global digital intelligence and investigative reach.</p>
+          <div className="rounded-2xl border border-border bg-card p-6">
+            <div className="flex items-center gap-3"><Blocks className="h-6 w-6 text-accent" /><span className="font-semibold">Blockchain transaction trail</span></div>
+            <div className="mt-6 flex items-center justify-between gap-2">
+              {["Origin", "Wallet", "Wallet", "Service"].map((label, i) => (
+                <div key={i} className="flex min-w-0 flex-1 flex-col items-center gap-2">
+                  <span className="grid h-10 w-10 place-items-center rounded-xl border border-primary/20 bg-primary/10 text-primary"><Wallet className="h-5 w-5" /></span>
+                  <span className="text-center text-[11px] text-muted-foreground">{label}</span>
+                  {i < 3 && <span className="sr-only">leads to</span>}
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-xs leading-6 text-muted-foreground">Illustrative flow only. Actual tracing paths and attribution depend on the blockchain, available evidence and investigative context.</p>
           </div>
         </div>
       </section>
