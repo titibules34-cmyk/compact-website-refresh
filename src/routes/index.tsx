@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-
-const WORDS = ["digital", "tracing", "intelligence", "recovery"];
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -67,36 +65,36 @@ const faqs = [
 
 function Index() {
   const [open, setOpen] = useState<number | null>(0);
-  const [word, setWord] = useState(0);
-  useEffect(() => {
-    const t = setInterval(() => setWord((w) => (w + 1) % WORDS.length), 2200);
-    return () => clearInterval(t);
-  }, []);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
     <main className="min-h-screen">
-      <header className="fixed inset-x-0 top-4 z-50 mx-auto flex w-[min(100%-2rem,64rem)] items-center justify-between rounded-full border border-border bg-background/70 px-5 py-2.5 backdrop-blur">
-        <a href="#top" className="flex items-center gap-2 text-sm font-extrabold tracking-widest">
-          <img src="/assets/cyber-justice-logo.png" alt="" className="h-8 w-8 object-contain" />
+      <header className="absolute inset-x-0 top-0 z-50 mx-auto flex w-[min(100%-3rem,90rem)] items-center justify-between px-2 py-6">
+        <a href="#top" className="flex items-center gap-3 text-sm font-extrabold tracking-widest">
+          <img src="/assets/cyber-justice-logo.png" alt="Cyber Justice shield" className="h-11 w-11 object-contain" />
           <span>CYBER <span className="text-accent">JUSTICE</span></span>
         </a>
-        <nav className="flex items-center gap-5 text-sm text-muted-foreground">
-          <a href="#services" className="hidden hover:text-foreground sm:inline">Services</a>
-          <a href="#faq" className="hidden hover:text-foreground sm:inline">FAQ</a>
-          <a href="#contact" className="rounded-full bg-primary px-4 py-1.5 font-semibold text-primary-foreground">Contact</a>
+        <nav className="flex items-center gap-8 text-sm font-medium text-foreground">
+          <a href="#about" className="transition hover:text-accent">About Us</a>
+          <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
+            <button type="button" aria-expanded={servicesOpen} onClick={() => setServicesOpen((value) => !value)} className="flex items-center gap-2 transition hover:text-accent">Services <span aria-hidden="true">⌄</span></button>
+            {servicesOpen && <div className="absolute right-0 top-full min-w-52 rounded-xl border border-border bg-background/95 p-3 shadow-xl backdrop-blur">
+              <a href="#services" onClick={() => setServicesOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-secondary">Our services</a>
+              <Link to="/asset-recovery" onClick={() => setServicesOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-secondary">Asset recovery</Link>
+              <Link to="/cyber-intelligence" onClick={() => setServicesOpen(false)} className="block rounded-lg px-3 py-2 hover:bg-secondary">Cyber intelligence</Link>
+            </div>}
+          </div>
+          <a href="#contact" className="transition hover:text-accent">Contact Us</a>
         </nav>
       </header>
 
-      <section id="top" className="relative isolate flex h-[80vh] min-h-[32rem] max-h-[46rem] items-end overflow-hidden">
-        <img src="/assets/cyber-justice-hero.webp" alt="Lady Justice in a blue digital investigation room" className="absolute inset-0 z-0 h-full w-full object-cover" fetchPriority="high" />
-        <div className="hero-overlay absolute inset-0 z-10" />
-        <div className="relative z-20 mx-auto w-[min(100%-2rem,64rem)] pb-16 pt-32">
+      <section id="top" className="relative isolate flex min-h-[48rem] h-screen items-center overflow-hidden">
+        <img src="/assets/cyber-justice-hero.webp" alt="Lady Justice in a blue digital investigation room" className="absolute inset-0 z-0 h-full w-full object-cover object-center" fetchPriority="high" />
+        <div className="absolute inset-0 z-10 bg-[linear-gradient(90deg,rgba(5,15,38,0.72)_0%,rgba(5,15,38,0.38)_48%,rgba(5,15,38,0.12)_100%)]" />
+        <div className="relative z-20 mx-auto w-[min(100%-3rem,90rem)] px-2 pt-20">
           <p className="eyebrow">Digital forensics & investigations</p>
-          <h1 className="mt-4 max-w-2xl text-4xl font-extrabold leading-tight sm:text-6xl">
-            Actionable{" "}
-            <span key={word} className="word-swap inline-block text-accent">{WORDS[word]}</span>
-            <br />
-            solutions.
+          <h1 className="mt-4 max-w-3xl text-5xl font-extrabold leading-tight sm:text-7xl">
+            Actionable <span className="text-accent">intelligence</span> solutions.
           </h1>
           <p className="mt-4 max-w-lg text-muted-foreground">
             Tracing, recovery, and forensic intelligence for law firms, investigators, and institutions worldwide.
@@ -115,7 +113,8 @@ function Index() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto w-[min(100%-2rem,64rem)] py-20">
+      <section id="about" className="mx-auto w-[min(100%-2rem,64rem)] py-20">
+        <span id="services" />
         <p className="eyebrow">Services</p>
         <h2 className="mt-3 text-3xl font-extrabold">Focused capabilities, clear boundaries.</h2>
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
