@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AssetRecoveryRouteImport } from './routes/asset-recovery'
+import { Route as CyberIntelligenceRouteImport } from './routes/cyber-intelligence'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AssetRecoveryRoute = AssetRecoveryRouteImport.update({
+  id: '/asset-recovery',
+  path: '/asset-recovery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CyberIntelligenceRoute = CyberIntelligenceRouteImport.update({
+  id: '/cyber-intelligence',
+  path: '/cyber-intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/asset-recovery': typeof AssetRecoveryRoute
+  '/cyber-intelligence': typeof CyberIntelligenceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/asset-recovery': typeof AssetRecoveryRoute
+  '/cyber-intelligence': typeof CyberIntelligenceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/asset-recovery': typeof AssetRecoveryRoute
+  '/cyber-intelligence': typeof CyberIntelligenceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/asset-recovery' | '/cyber-intelligence'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/asset-recovery' | '/cyber-intelligence'
+  id: '__root__' | '/' | '/asset-recovery' | '/cyber-intelligence'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AssetRecoveryRoute: typeof AssetRecoveryRoute
+  CyberIntelligenceRoute: typeof CyberIntelligenceRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/asset-recovery': {
+      id: '/asset-recovery'
+      path: '/asset-recovery'
+      fullPath: '/asset-recovery'
+      preLoaderRoute: typeof AssetRecoveryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cyber-intelligence': {
+      id: '/cyber-intelligence'
+      path: '/cyber-intelligence'
+      fullPath: '/cyber-intelligence'
+      preLoaderRoute: typeof CyberIntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AssetRecoveryRoute: AssetRecoveryRoute,
+  CyberIntelligenceRoute: CyberIntelligenceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
